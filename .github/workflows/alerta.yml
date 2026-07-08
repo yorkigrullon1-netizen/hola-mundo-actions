@@ -1,0 +1,25 @@
+name: Alerta DevOps ITLA
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  enviar-notificacion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Hola Mundo
+        run: node index.js
+
+      - name: Enviar notificación a ntfy
+        run: |
+          curl -H "Title: GitHub Actions" \
+               -H "Priority: default" \
+               -H "Tags: white_check_mark" \
+               -d "Se realizó un push al repositorio ${{ github.repository }} por ${{ github.actor }}" \
+               https://ntfy.sh/devops-itla

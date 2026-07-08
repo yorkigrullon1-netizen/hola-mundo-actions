@@ -1,0 +1,9 @@
+{
+  "name": "hola-mundo-actions",
+  "version": "1.0.0",
+  "description": "Proyecto Hola Mundo con GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
